@@ -14,7 +14,7 @@ export default function TarjetaProductos(props) {
 const [visible, setVisible] = useState(false);
 
 return (
-    <View> {/* 👈 Padre único */}
+    <View> 
 
       {/* TARJETA */}
     <TouchableOpacity 
@@ -25,7 +25,7 @@ return (
         source={{ uri: props.item.imagen }}
         style={styles.image}
         />
-        <Text style={styles.title}>{props.item.nombre}</Text>
+        <Text style={styles.title}>{props.item.titulo}</Text>
         <Text style={styles.price}>${props.item.precio}</Text>
         </TouchableOpacity>
 
@@ -40,7 +40,7 @@ return (
             source={{ uri: props.item.imagen }}
             style={styles.modalImage}
         />
-        <Text style={styles.modalTitle}>{props.item.nombre}</Text>
+        <Text style={styles.modalTitle}>{props.item.titulo}</Text>
         <Text style={styles.modalDescription}>
             {props.item.descripcion}
         </Text>
@@ -61,4 +61,78 @@ return (
     )
 }
 
-const styles = StyleSheet.create({})
+
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: '#1F1F1F',
+    margin: 10,
+    padding: 10,
+    borderRadius: 12,
+    alignItems: 'center',
+    elevation: 6,          // sombra y profundidad
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+  },
+  image: {
+    width: 160,
+    height: 240,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#fff',
+    textAlign: 'center',
+  },
+  price: {
+    fontSize: 16,
+    color: '#00E676',
+    fontWeight: '600',
+    marginTop: 6,
+  },
+
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.9)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+},
+modalImage: {
+    width: 220,
+    height: 320,
+    borderRadius: 15,
+    marginBottom: 15,
+  },
+  modalTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#fff',
+    textAlign: 'center',
+  },
+  modalDescription: {
+    fontSize: 15,
+    color: '#DDD',
+    marginVertical: 10,
+    textAlign: 'center',
+  },
+  modalPrice: {
+    fontSize: 19,
+    color: '#00E676',
+    fontWeight: '700',
+    marginBottom: 15,
+  },
+  closeButton: {
+    backgroundColor: '#E53935',
+    padding: 12,
+    borderRadius: 10,
+  },
+  closeButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+});

@@ -6,16 +6,21 @@ import { FlatList } from 'react-native-gesture-handler'
 
 export default function ProductosScreen() {
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
-        data={videojuegos}
-        renderItem={({ item }) => <TarjetaProductos item={item} />}
-        keyExtractor={(item) => item.id.toString()}
+        data={videojuegos.videojuegos}
+        numColumns={2}
+        renderItem={({ item }) =>
+          <TarjetaProductos item={item} />}
       />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    backgroundColor: '#121212',
+    paddingTop: 10,
+  }
 })

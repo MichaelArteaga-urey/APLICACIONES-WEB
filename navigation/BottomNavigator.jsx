@@ -6,7 +6,7 @@ import LoginScreen from '../screens/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
+export function MyTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Productos" component={ProductosScreen} />
