@@ -3,12 +3,16 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {MyTabs} from './navigation/BottomNavigator';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { CarritoProvider } from './context/Carrito.Context';
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
+
+    <CarritoProvider>
+      <NavigationContainer>
+        <MyTabs />
+      </NavigationContainer>
+    </CarritoProvider>
     </GestureHandlerRootView>
   );
 }

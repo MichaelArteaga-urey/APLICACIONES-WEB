@@ -4,15 +4,15 @@ import {
   Text, 
   TouchableOpacity, 
   View, 
-  Image 
+  Image
 } from 'react-native'
 
-import React, { useState } from 'react'
-
+import React, { useContext, useState } from 'react'
+import { CarritoContext } from '../context/Carrito.Context';
 export default function TarjetaProductos(props) {
 
 const [visible, setVisible] = useState(false);
-
+const { agregarAlCarrito } = useContext(CarritoContext);
 return (
     <View> 
 
@@ -53,6 +53,12 @@ return (
             onPress={() => setVisible(false)}
         >
             <Text style={styles.closeButtonText}>Cerrar</Text>
+            style={styles.agregarAlCarrito}
+            onPress={() => {
+                agregarAlCarrito(props.item);
+                setVisible(false);
+                <Text style={styles.AgregarButtonText}>Agregar al Carrito</Text>
+            }}
         </TouchableOpacity>
         </View>
         </Modal>
@@ -69,7 +75,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 12,
     alignItems: 'center',
-    elevation: 6,          // sombra y profundidad
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
@@ -135,4 +140,14 @@ modalImage: {
     fontSize: 16,
     fontWeight: '600',
   },
+  agregarAlCarrito: {
+     backgroundColor: '#00E676',
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  AgregarButtonText: {
+    color: '#000',
+    fontWeight: 'bold', 
+  }
 });

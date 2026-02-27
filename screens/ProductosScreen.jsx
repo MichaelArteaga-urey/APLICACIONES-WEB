@@ -9,7 +9,7 @@ export default function ProductosScreen() {
     <View style={styles.container}>
       <FlatList
         data={videojuegos.videojuegos}
-        numColumns={2}
+        numColumns={1}
         renderItem={({ item }) =>
           <TarjetaProductos item={item} />}
       />
